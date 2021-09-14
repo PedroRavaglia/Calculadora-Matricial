@@ -259,9 +259,15 @@ btn.place(x=120,y=230,width=100,height=20)
 
 ## Traço
 def funcaof():
-    m1 = cc.str2matrix(vprimeira.get(), tipo1.get())
-    trace = m1.trace()
-    print(trace)
+    ind_l = ind_m.get().split(',')
+    if ind_l != ['']:
+        m1 = cc.getMatrix(vorigem.get(), int(ind_l[0]))
+        trace = m1.trace()
+        print('Traço da matriz ' + ind_l[0] + ': ' + str(trace))
+    else:
+        m1 = cc.str2matrix(vprimeira.get(), tipo1.get())
+        trace = m1.trace()
+        print('Traço da primeira matriz: ' + str(trace))
     
 btn=Button(app,text="Traço",command=funcaof)
 btn.place(x=200,y=230,width=100,height=20)
@@ -271,9 +277,15 @@ btn.place(x=200,y=230,width=100,height=20)
 
 ## Determinante
 def funcaodet():
-    m1 = cc.str2matrix(vprimeira.get(), tipo1.get())
-    det = m1.det()
-    print(det)
+    ind_l = ind_m.get().split(',')
+    if ind_l != ['']:
+        m1 = cc.getMatrix(vorigem.get(), int(ind_l[0]))
+        det = m1.det()
+        print('Determinante da matriz ' + ind_l[0] + ': ' + str(det))
+    else:
+        m1 = cc.str2matrix(vprimeira.get(), tipo1.get())
+        det = m1.det()
+        print('Determinante da primeira matriz: ' + str(det))
     
 btn=Button(app,text="Determinante",command=funcaodet)
 btn.place(x=300,y=230,width=100,height=20)
