@@ -17,6 +17,7 @@ def cleanStrData(str):
 
 ## Converte uma string em uma matriz, de acordo com seu tipo
 def str2matrix(str, type):
+    mat = ''
     
     if type in ['r', 'q', 'l', 'c']:
         mat = cleanStrData(str)
@@ -105,9 +106,13 @@ def add_row(mat, df):
 
 
 
+
 ## Retorna a matriz do dataframe referente ao índice
 def index2matrix(i, df):
     return str2matrix(df['matrix'][i], df['type'][i])
+
+
+
 
 ## Retorna a matriz referente ao índice do arquivo CSV
 def getMatrix(path, i):
@@ -136,7 +141,7 @@ def get_list(path):
         
     return l
     
-    
+
     
 
 ## Grava a lista de matrizes no arquivo CSV 
@@ -146,7 +151,8 @@ def list2csv(path, l):
     attributes = ['type', 'num_rows', 'num_cols', 'matrix']
     df = pd.DataFrame(columns=attributes)
     for i in range(len(l)):
-       df = add_row(l[i], df)
+        df = add_row(l[i], df)
+      
        
     # Escrevendo no cabeçalho do arquivo a quantidade de matrizes da lista
     df1 = pd.DataFrame({'a': [len(l)]})
@@ -167,3 +173,5 @@ def add_matrix(path, mat, l):
     list2csv(path, l)
     
     return l
+
+
