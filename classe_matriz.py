@@ -380,8 +380,7 @@ class Matriz:
             print("<func t> Aviso: Não é possível operar com uma matriz vazia")
             return None
         
-        A = self.mat
-        riz_to_array()
+        A = self.matriz_to_array()
         A = np.transpose(A)
         return array_to_matriz(A)
     
